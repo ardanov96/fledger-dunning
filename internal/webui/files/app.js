@@ -111,7 +111,7 @@
           <td>${fmtIDR(s.total_invoiced_minor)}</td>
           <td>${fmtIDR(s.total_paid_minor)}</td>
           <td><strong>${fmtIDR(s.closing_balance_minor)}</strong></td>
-          <td>${s.pdf_file_path || '-'}</td>
+          <td>${s.pdf_file_path ? `<a href="/v1/dunning/statements/${s.id}/download" target="_blank" style="color:#38bdf8;text-decoration:underline;">📄 Unduh PDF</a>` : '-'}</td>
         </tr>
       `).join('');
     } catch (e) {}

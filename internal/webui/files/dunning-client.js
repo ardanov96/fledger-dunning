@@ -29,6 +29,7 @@
     listQueues: (status) => call('GET', '/v1/dunning/queues' + (status ? '?status=' + status : '')),
     ingestInvoice: (body) => call('POST', '/v1/dunning/queues/ingest-invoice', body),
     cancelInvoice: (invoiceId) => call('POST', '/v1/dunning/queues/cancel-invoice', { invoice_id: invoiceId }),
+    dispatchQueue: (id) => call('POST', '/v1/dunning/queues/' + id + '/dispatch'),
     cronRun: () => call('POST', '/v1/dunning/queues/cron-run'),
     queueCounts: () => call('GET', '/v1/dunning/outbox/counts'),
     whatsappStatus: () => call('GET', '/v1/dunning/whatsapp/status'),
